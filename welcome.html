@@ -241,7 +241,7 @@
   <script>
     (function () {
       // ---- CONFIG ----
-      var API_ENDPOINT = "http://localhost:3000/getSchoolWelcomeData";
+      var API_ENDPOINT = "https://site-quad-backgrounds-responses.trycloudflare.com/getSchoolWelcomeData";
 
       var statusEl = document.getElementById("status");
       var welcomeTextEl = document.getElementById("welcomeText");
@@ -250,16 +250,6 @@
       function getQueryParam(name) {
         var params = new URLSearchParams(window.location.search);
         return params.get(name);
-      }
-
-      function applyColors(colors) {
-        if (!colors || typeof colors !== "object") return;
-        var root = document.documentElement;
-        Object.keys(colors).forEach(function (key) {
-          if (key.startsWith("--")) {
-            root.style.setProperty(key, colors[key]);
-          }
-        });
       }
 
       function setStatus(msg, isError) {
@@ -302,7 +292,6 @@
           return res.json();
         })
         .then(function (data) {
-          if (data.colors) applyColors(data.colors);
 
           if (data.image) {
             welcomeImageEl.src = data.image;
