@@ -51,8 +51,6 @@
       var interactiveNonce   = getQueryParam("interactiveNonce");
       var interactivePublicKey = getQueryParam("interactivePublicKey");
       var visitorId          = getQueryParam("visitorId");
-      var urlSlug            = getQueryParam("urlSlug");
-      var assetId            = getQueryParam("assetId");
 
       if (schoolNames) {
         welcomeTextEl.textContent = "Welcome To " + decodeURIComponent(schoolNames);
@@ -111,8 +109,6 @@
 
         var body = {
           visitorId: visitorId,
-          urlSlug: urlSlug,
-          assetId: assetId,
           interactiveNonce: interactiveNonce,
           interactivePublicKey: interactivePublicKey,
           dataObject: {
