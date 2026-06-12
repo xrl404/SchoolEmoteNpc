@@ -18,7 +18,7 @@
     <div class="underline"></div>
     <img class="welcome-image" id="welcomeImage" alt="School welcome image" />
     <button class="reward-btn" id="rewardBtn" disabled>
-      <span class="btn-icon">🎉</span> Claim Your Reward
+      Claim School Emoji
     </button>
     <div class="status" id="status"></div>
   </div>
@@ -130,19 +130,19 @@
           .then(function () {
             setStatus("");
             rewardBtn.classList.add("reward-btn--success");
-            rewardBtn.innerHTML = '<span class="btn-icon">✅</span> Reward Claimed!';
+            rewardBtn.innerHTML = 'Claimed';
             // Leave disabled — one claim per session
           })
           .catch(function (err) {
             console.error("Failed to claim reward:", err);
             setStatus("Could not claim reward. Please try again.", true);
             rewardBtn.classList.add("reward-btn--error");
-            rewardBtn.innerHTML = '<span class="btn-icon">⚠️</span> Try Again';
+            rewardBtn.innerHTML = 'Oh No';
             rewardBtn.disabled = false;
             // Reset error state after a moment so they can retry cleanly
             setTimeout(function () {
               rewardBtn.classList.remove("reward-btn--error");
-              rewardBtn.innerHTML = '<span class="btn-icon">🎉</span> Claim Your Reward';
+              rewardBtn.innerHTML = 'Claim School Emoji';
             }, 3000);
           });
       });
