@@ -46,11 +46,13 @@
       }
 
       // ── URL params ──────────────────────────────────────────────────
-      var schoolNames        = getQueryParam("schoolNames");
-      var schoolIds          = getQueryParam("schoolIds");
-      var interactiveNonce   = getQueryParam("interactiveNonce");
+      var schoolNames          = getQueryParam("schoolNames");
+      var schoolIds            = getQueryParam("schoolIds");
+      var interactiveNonce     = getQueryParam("interactiveNonce");
       var interactivePublicKey = getQueryParam("interactivePublicKey");
-      var visitorId          = getQueryParam("visitorId");
+      var urlSlug              = getQueryParam("urlSlug");
+      var visitorId            = getQueryParam("visitorId");
+      var assetId              = getQueryParam("assetId");
 
       if (schoolNames) {
         welcomeTextEl.textContent = "Welcome To " + decodeURIComponent(schoolNames);
@@ -67,6 +69,7 @@
       welcomeUrl.searchParams.set("schoolIds", schoolIds);
       welcomeUrl.searchParams.set("interactiveNonce", interactiveNonce);
       welcomeUrl.searchParams.set("interactivePublicKey", interactivePublicKey);
+      welcomeUrl.searchParams.set("urlSlug", urlSlug)
 
       setStatus("Loading...");
 
@@ -111,6 +114,7 @@
           visitorId: visitorId,
           interactiveNonce: interactiveNonce,
           interactivePublicKey: interactivePublicKey,
+          urlSlug: urlSlug,
           dataObject: {
             expressionId: {
               value: cachedEmoteId
